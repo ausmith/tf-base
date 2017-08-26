@@ -6,9 +6,9 @@ fi
 
 environment=${1:-garbage}
 if [[ "${environment}" == "test" ]]; then
-  state_identifier="ausmith-me-state-test"
+  state_identifier="ausmith-base-state-test"
 elif [[ "${environment}" == "prod" ]]; then
-  state_identifier="ausmith-me-state-prod"
+  state_identifier="ausmith-base-state-prod"
 else
   echo "only accepting 'test' or 'prod' as params"
   echo "bailing"
