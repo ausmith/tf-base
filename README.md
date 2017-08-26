@@ -34,6 +34,9 @@ Use the tf state initializer script to ensure your account is setup.
 ### Testing
 
 ```
+# Setup the tf variables properly
+source vars.default
+
 # See the tf output from running `terraform plan`
 make test-plan
 
@@ -47,6 +50,9 @@ make test-teardown
 ### Prod
 
 ```
+# Setup the tf variables properly
+source vars.default
+
 # See the tf output from running `terraform plan`
 make prod-plan
 
@@ -59,9 +65,8 @@ but am intentionally avoiding a make target for that command.
 
 ## Troubleshooting
 
-Error message: `provider.aws: no suitable version installed`
+Error message: `provider.XXX: no suitable version installed`
 
-You are missing the required aws provider. `terraform init` will ensure
-you have it downloaded. You can safely drop `tf-validate` from `test-plan`
-and run `make test-plan` to get it downloaded (be sure to add the validate
-step back afterwards).
+The terraform provider has not been downloaded yet. To fix this, run
+`make tf-init` to skip the validation step and ensure correct version
+of the providers has been downloaded locally.
