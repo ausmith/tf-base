@@ -4,3 +4,6 @@
 
 # Module directory
 .terraform/
+
+# remote_state.tf is derived
+remote_state.tf
