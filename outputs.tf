@@ -10,7 +10,7 @@ output "s3_site_logs_bucket" {
   value = "${aws_s3_bucket.site_logs.bucket}"
 }
 
-output "s3_site_logs_arn" {
+output "s3_site_logs_bucket_arn" {
   value = "${aws_s3_bucket.site_logs.arn}"
 }
 
