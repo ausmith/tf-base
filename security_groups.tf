@@ -66,6 +66,30 @@ resource "aws_security_group_rule" "ntp" {
   ]
 }
 
+resource "aws_security_group_rule" "http_out" {
+  type              = "egress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  security_group_id = "${aws_security_group.basic_server_needs.id}"
+
+  cidr_blocks = [
+    "0.0.0.0/0",
+  ]
+}
+
+resource "aws_security_group_rule" "https_out" {
+  type              = "egress"
+  from_port         = 443
+  to_port           = 443
+  protocol          = "tcp"
+  security_group_id = "${aws_security_group.basic_server_needs.id}"
+
+  cidr_blocks = [
+    "0.0.0.0/0",
+  ]
+}
+
 resource "aws_security_group" "emergency_ssh_access" {
   name = "${var.env_name}_emergency_ssh"
   description = "Allow ssh, intended for emergencies and should be unused normally"
